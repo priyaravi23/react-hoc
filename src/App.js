@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Username from './components/uppercase/username';
+import hoc from "./components/uppercase/hoc-uppercase";
+import withStorage from "./components/local-storage/hoc-local-storage";
+import localStorage from './components/local-storage/local-storage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const UpperCaseUsername = hoc(Username);
+const LocalStorageComponent = withStorage(localStorage);
+
+
+const App = () => (
+    <div>
+        {/*<UpperCaseUsername>Priya Ravi</UpperCaseUsername>*/}
+        <LocalStorageComponent></LocalStorageComponent>
     </div>
-  );
-}
+);
+
 
 export default App;
